@@ -83,21 +83,21 @@ public class PracticalTest01MainActivity extends AppCompatActivity {
         pressMeTooButton = (Button)findViewById(R.id.press_me_too_button);
         pressMeTooButton.setOnClickListener(buttonClickListener);
 
-//        if (savedInstanceState != null) {
-//            if (savedInstanceState.containsKey(Constants.LEFT_COUNT)) {
-//                leftEditText.setText(savedInstanceState.getString(Constants.LEFT_COUNT));
-//            } else {
-//                leftEditText.setText(String.valueOf(0));
-//            }
-//            if (savedInstanceState.containsKey(Constants.RIGHT_COUNT)) {
-//                rightEditText.setText(savedInstanceState.getString(Constants.RIGHT_COUNT));
-//            } else {
-//                rightEditText.setText(String.valueOf(0));
-//            }
-//        } else {
-//            leftEditText.setText(String.valueOf(0));
-//            rightEditText.setText(String.valueOf(0));
-//        }
+        if (savedInstanceState != null) {
+            if (savedInstanceState.containsKey(Constants.LEFT_COUNT)) {
+                leftEditText.setText(savedInstanceState.getString(Constants.LEFT_COUNT));
+            } else {
+                leftEditText.setText(String.valueOf(0));
+            }
+            if (savedInstanceState.containsKey(Constants.RIGHT_COUNT)) {
+                rightEditText.setText(savedInstanceState.getString(Constants.RIGHT_COUNT));
+            } else {
+                rightEditText.setText(String.valueOf(0));
+            }
+        } else {
+            leftEditText.setText(String.valueOf(0));
+            rightEditText.setText(String.valueOf(0));
+        }
 
         navigateToSecondaryActivityButton = (Button)findViewById(R.id.navigate_to_secondary_activity_button);
         navigateToSecondaryActivityButton.setOnClickListener(buttonClickListener);
@@ -135,17 +135,17 @@ public class PracticalTest01MainActivity extends AppCompatActivity {
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
-//        if (savedInstanceState.containsKey(Constants.LEFT_COUNT)) {
-//            leftEditText.setText(savedInstanceState.getString(Constants.LEFT_COUNT));
-//        } else {
-//            leftEditText.setText(String.valueOf(0));
-//        }
-//
-//        if (savedInstanceState.containsKey(Constants.RIGHT_COUNT)) {
-//            rightEditText.setText(savedInstanceState.getString(Constants.RIGHT_COUNT));
-//        } else {
-//            rightEditText.setText(String.valueOf(0));
-//        }
+        if (savedInstanceState.containsKey(Constants.LEFT_COUNT)) {
+            leftEditText.setText(savedInstanceState.getString(Constants.LEFT_COUNT));
+        } else {
+            leftEditText.setText(String.valueOf(0));
+        }
+
+        if (savedInstanceState.containsKey(Constants.RIGHT_COUNT)) {
+            rightEditText.setText(savedInstanceState.getString(Constants.RIGHT_COUNT));
+        } else {
+            rightEditText.setText(String.valueOf(0));
+        }
     }
 
     @Override
