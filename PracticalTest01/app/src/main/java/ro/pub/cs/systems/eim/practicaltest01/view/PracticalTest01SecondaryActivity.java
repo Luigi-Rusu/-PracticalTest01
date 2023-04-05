@@ -12,40 +12,29 @@ import ro.pub.cs.systems.eim.practicaltest01.general.Constants;
 
 public class PracticalTest01SecondaryActivity extends AppCompatActivity {
 
-    private TextView numberOfClicksTextView;
-    private Button okButton, cancelButton;
-
-    private ButtonClickListener buttonClickListener = new ButtonClickListener();
-    private class ButtonClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.ok_button:
-                    setResult(RESULT_OK, null);
-                    break;
-                case R.id.cancel_button:
-                    setResult(RESULT_CANCELED, null);
-                    break;
-            }
-            finish();
-        }
-    }
+    private String allTerms = "";
+    private int sum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practical_test01_secondary);
+        setContentView(R.layout.activity_practical_test01_main);
 
-        numberOfClicksTextView = (TextView)findViewById(R.id.number_of_clicks_text_view);
         Intent intent = getIntent();
-        if (intent != null && intent.getExtras().containsKey(Constants.NUMBER_OF_CLICKS)) {
-            int numberOfClicks = intent.getIntExtra(Constants.NUMBER_OF_CLICKS, -1);
-            numberOfClicksTextView.setText(String.valueOf(numberOfClicks));
+        if (intent != null && intent.getExtras().containsKey(Constants.ALL_TERMS)) {
+            allTerms = intent.getExtras().get(Constants.ALL_TERMS).toString();
         }
 
-        okButton = (Button)findViewById(R.id.ok_button);
-        okButton.setOnClickListener(buttonClickListener);
-        cancelButton = (Button)findViewById(R.id.cancel_button);
-        cancelButton.setOnClickListener(buttonClickListener);
+        if (!allTerms.isEmpty()) {
+            for (int i = 0; i < allTerms.length(); ++i) {
+                if (allTerms.charAt(i) != '+') {
+                    sum += Integer.parseInt(String.valueOf(allTerms.charAt(i)));
+                }
+            }
+            setResult(sum);
+        } else {
+            setResult(sum);
+        }
+        finish();
     }
 }
