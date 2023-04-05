@@ -47,9 +47,6 @@ public class PracticalTest01MainActivity extends AppCompatActivity {
                         String toAdd = allTerms.getText().toString() + "+" + extracted;
                         allTerms.setText(toAdd);
                     }
-                    Intent intent = new Intent(getApplicationContext(), PracticalTest01SecondaryActivity.class);
-                    intent.putExtra(Constants.ALL_TERMS, allTerms.getText().toString());
-                    startActivityForResult(intent, 2);
                 }
             } else if (view.getId() == R.id.compute_button) {
                 Intent intent = new Intent(getApplicationContext(), PracticalTest01SecondaryActivity.class);

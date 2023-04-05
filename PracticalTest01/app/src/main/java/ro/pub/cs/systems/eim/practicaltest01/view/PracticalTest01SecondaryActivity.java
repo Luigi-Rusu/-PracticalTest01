@@ -26,13 +26,15 @@ public class PracticalTest01SecondaryActivity extends AppCompatActivity {
         }
 
         if (!allTerms.isEmpty()) {
-            for (int i = 0; i < allTerms.length(); ++i) {
-                if (allTerms.charAt(i) != '+') {
-                    sum += Integer.parseInt(String.valueOf(allTerms.charAt(i)));
-                }
+            String result = allTerms.replace('+', 'X');
+            String[] numbers = result.split("X");
+            for(int i = 0; i < numbers.length; i++ ) {
+                sum += Integer.parseInt(numbers[i]);
             }
             setResult(sum);
-        } else {
+            }
+
+         else {
             setResult(sum);
         }
         finish();

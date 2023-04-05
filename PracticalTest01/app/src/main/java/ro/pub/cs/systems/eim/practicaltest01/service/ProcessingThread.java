@@ -28,8 +28,10 @@ public class ProcessingThread extends Thread {
     @Override
     public void run() {
         Log.d(Constants.PROCESSING_THREAD_TAG, "Thread has started! PID: " + Process.myPid() + " TID: " + Process.myTid());
-        sleep();
-        sendMessage();
+        while (isRunning) {
+            sendMessage();
+            sleep();
+        }
         Log.d(Constants.PROCESSING_THREAD_TAG, "Thread has stopped!");
     }
 
