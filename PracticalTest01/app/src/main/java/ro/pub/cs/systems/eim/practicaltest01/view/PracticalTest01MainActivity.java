@@ -53,11 +53,7 @@ public class PracticalTest01MainActivity extends AppCompatActivity {
                 intent.putExtra(Constants.ALL_TERMS, allTerms.getText().toString());
                 startActivityForResult(intent, 2);
             }
-            if (sumOfAll > Constants.SUM_OVER) {
-                Intent intent = new Intent(getApplicationContext(), PracticalTest01Service.class);
-                intent.putExtra(Constants.SUM, sumOfAll);
-                getApplicationContext().startService(intent);
-            }
+
         }
     }
 
@@ -83,6 +79,11 @@ public class PracticalTest01MainActivity extends AppCompatActivity {
         if (requestCode == 2) {
             Toast.makeText(this, "The activity returned with sum result " + resultCode, Toast.LENGTH_LONG).show();
             sumOfAll = resultCode;
+        }
+        if (sumOfAll > Constants.SUM_OVER) {
+            Intent intent2 = new Intent(getApplicationContext(), PracticalTest01Service.class);
+            intent2.putExtra(Constants.SUM, sumOfAll);
+            getApplicationContext().startService(intent2);
         }
     }
 
